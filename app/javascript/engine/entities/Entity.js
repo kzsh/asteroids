@@ -1,4 +1,4 @@
-import { getId } from 'asteroids/system';
+import { makeId } from 'engine/system';
 
 export default class Entity {
   constructor() {
