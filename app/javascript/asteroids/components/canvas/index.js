@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { getWindowDimensions } from 'asteroids/utils/dom';
 import Game from 'asteroids/game';
 import Engine from 'engine';
+import { getWindowDimensions } from 'asteroids/utils/dom';
 
 const Canvas = React.createClass({
 
