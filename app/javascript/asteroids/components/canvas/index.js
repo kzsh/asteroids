@@ -19,7 +19,7 @@ const Canvas = React.createClass({
               engine: new Engine(canvas)
             }).start();
           }
-        } style={styles}></canvas>
+        } style={styles} height={dimensions.h} width={dimensions.w}></canvas>
     );
   }
 
