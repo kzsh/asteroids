@@ -33,7 +33,7 @@ export default class Engine {
       var delta = (currentTime - lastTime) / 1000;
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.update(delta, this.entities);
-      this.draw(this.entities, this.context);
+      this.draw();
       lastTime = currentTime;
       if (this.running) {
         window.requestAnimationFrame(gameLoop);
@@ -43,7 +43,7 @@ export default class Engine {
 
   draw() {
     for(let entity of this.entities) {
-      entity.draw();
+      entity.draw(this.context);
     }
   }
 
@@ -69,20 +69,3 @@ export default class Engine {
 
 };
 
-
-function getRandomPosition() {
-  return {
-    x: Math.floor(Math.random() * cw),
-    y: Math.floor(Math.random() * ch)
-  }
-}
-
-function getRandomVelocity(maxX, maxY) {
-  if (!maxY) {
-    maxY = maxX;
-  }
-  return {
-    dx: (Math.random() * maxX * 5) - maxX,
-    dy: (Math.random() * maxY * 5) - maxY
-  }
-}
