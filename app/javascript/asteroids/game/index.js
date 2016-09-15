@@ -30,7 +30,6 @@ export default class Game {
     );
     let started = true;
     this.start();
-
   }
 
   start() {
