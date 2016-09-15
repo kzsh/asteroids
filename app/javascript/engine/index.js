@@ -35,8 +35,8 @@ export default class Engine {
       this.update(delta, this.entities);
       this.draw();
       lastTime = currentTime;
-      if (this.running) {
-        window.requestAnimationFrame(gameLoop);
+      if (this.gameLoop.running) {
+        window.requestAnimationFrame(this.gameLoop);
       }
     }.bind(this);
   }
@@ -54,13 +54,14 @@ export default class Engine {
   }
 
   start() {
+    console.log('starting');
     this.gameLoop.running = true;
     this.gameLoop();
   }
 
-  start() {
+  stop() {
+    console.log('stopping');
     this.gameLoop.running = false;
-    this.gameLoop();
   }
 
   addEntity(entity) {
@@ -68,4 +69,3 @@ export default class Engine {
   }
 
 };
-

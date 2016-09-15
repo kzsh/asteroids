@@ -12,12 +12,13 @@ const Canvas = React.createClass({
       height: dimensions.h,
       width: dimensions.w
     }
+
     return (
         <canvas ref={
           (canvas) => {
             new Game({
               engine: new Engine(canvas)
-            }).start();
+            });
           }
         } style={styles} height={dimensions.h} width={dimensions.w}></canvas>
     );
