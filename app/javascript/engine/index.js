@@ -1,0 +1,88 @@
+import { FIRST_ENTITY_ID } from 'engine/system';
+
+export default class Engine {
+
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.context = canvas.getContext("2d");
+    this.fps = 30;
+    const entities = {
+      addEntity(e) {
+        this.values[e.id] = e;
+      },
+      values: {},
+      [Symbol.iterator]() {
+        return {
+          i: FIRST_ENTITY_ID,
+          next() {
+            const val = (entities.values || {})[this.i++];
+            return {value: val, done: Object.keys(entities.values).length + 1 === this.i};
+          }
+        };
+      }
+    };
+    this.entities = entities;
+    this.setupLoop();
+  }
+
+  setupLoop() {
+    let lastTime = new Date().getTime();
+
+    this.gameLoop = function() {
+      var currentTime = (new Date()).getTime();
+      var delta = (currentTime - lastTime) / 1000;
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.update(delta, this.entities);
+      this.draw(this.entities, this.context);
+      lastTime = currentTime;
+      if (this.running) {
+        window.requestAnimationFrame(gameLoop);
+      }
+    }.bind(this);
+  }
+
+  draw() {
+    for(let entity of this.entities) {
+      entity.draw();
+    }
+  }
+
+  update(delta) {
+    for(let entity of this.entities) {
+      entity.update(delta, this.entities);
+    }
+  }
+
+  start() {
+    this.gameLoop.running = true;
+    this.gameLoop();
+  }
+
+  start() {
+    this.gameLoop.running = false;
+    this.gameLoop();
+  }
+
+  addEntity(entity) {
+    this.entities.addEntity(entity);
+  }
+
+};
+
+
+function getRandomPosition() {
+  return {
+    x: Math.floor(Math.random() * cw),
+    y: Math.floor(Math.random() * ch)
+  }
+}
+
+function getRandomVelocity(maxX, maxY) {
+  if (!maxY) {
+    maxY = maxX;
+  }
+  return {
+    dx: (Math.random() * maxX * 5) - maxX,
+    dy: (Math.random() * maxY * 5) - maxY
+  }
+}
