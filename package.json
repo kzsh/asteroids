@@ -12,10 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "asteroids": "file:./app/javascript/asteroids",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "engine": "file:./app/javascript/engine",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-loader": "^1.4.0",
