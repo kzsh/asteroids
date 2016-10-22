@@ -15,3 +15,5 @@ export default class Circle extends Shape {
     this.context.fill();
   }
 }
+
+export default Circle;
