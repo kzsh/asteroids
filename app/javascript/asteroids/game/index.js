@@ -18,16 +18,6 @@ export default class Game {
           "#000")
       );
     }
-    this.engine.addEntity(
-      new Spaceship(
-        getRandomPosition().x,
-        getRandomPosition().y,
-        getRandomVelocity(0.1).dx,
-        getRandomVelocity(0.1).dy,
-        Math.floor(Math.random() * 10),
-        1,
-        "#000")
-    );
     let started = true;
     this.start();
   }
