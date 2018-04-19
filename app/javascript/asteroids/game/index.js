@@ -13,7 +13,7 @@ export default class Game {
           getRandomVelocity(0.1).dx,
           getRandomVelocity(0.1).dy,
           Math.floor(Math.random() * 10),
-          1,
+          Math.floor(Math.random() * 10) + 1,
           "#000")
       );
     }
