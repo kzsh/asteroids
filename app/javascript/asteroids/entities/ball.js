@@ -21,7 +21,6 @@ export default class Ball extends Entity {
   update(delta, entities) {
     let ddx = this.ddx;
     let ddy = this.ddy;
-    let velocityFactor = delta * 50;
 
     for(let e of entities) {
       let r = Math.sqrt(Math.pow(this.x - e.x, 2) + Math.pow(this.y - e.y, 2));
