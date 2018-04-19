@@ -20,8 +20,8 @@ export default class Ball extends Entity {
     this.y += this.dy;
   }
 
-  draw(context) {
-    new Circle(context, {x: this.x, y: this.y}, this.r).draw();
+  render(context) {
+    new Circle(context, {x: this.x, y: this.y}, this.r).render();
 
     context.fillText("" + this.dx.toPrecision(2) + ", " + this.dy.toPrecision(2), this.x + 17, this.y);
     context.fillStyle = "#000";

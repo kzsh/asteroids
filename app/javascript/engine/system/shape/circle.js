@@ -7,7 +7,7 @@ export default class Circle extends Shape {
     this.r = r;
   }
 
-  draw() {
+  render() {
     this.context.beginPath();
     this.context.fillStyle = this.color;
     this.context.arc(this.x, this.y, this.r * 2, 0, PI * 360);

@@ -33,7 +33,7 @@ export default class Engine {
       var delta = (currentTime - lastTime) / 1000;
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.update(delta, this.entities);
-      this.draw();
+      this.render();
       lastTime = currentTime;
       if (this.gameLoop.running) {
         window.requestAnimationFrame(this.gameLoop);
@@ -41,9 +41,9 @@ export default class Engine {
     }.bind(this);
   }
 
-  draw() {
+  render() {
     for(let entity of this.entities) {
-      entity.draw(this.context);
+      entity.render(this.context);
     }
   }
 

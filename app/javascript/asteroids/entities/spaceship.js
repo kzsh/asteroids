@@ -19,7 +19,7 @@ export default class Spaceship extends Entity {
     this.y += this.dy;
   }
 
-  draw(context) {
+  render(context) {
     context.fillStyle = this.color;
     context.beginPath();
     context.fillStyle = '#f00';
