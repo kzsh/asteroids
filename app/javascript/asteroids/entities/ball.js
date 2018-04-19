@@ -45,14 +45,35 @@ export default class Ball extends Entity {
   render(context) {
     new Circle(context, {x: this.x, y: this.y}, this.r).render();
 
-    context.fillText("" + this.dx.toPrecision(2) + ", " + this.dy.toPrecision(2), this.x + 17, this.y);
+    context.fillText("m:" + this.mass.toPrecision(2), this.x + 17, this.y - 10);
+    context.fillStyle = "#00F";
+    context.fill();
+
+    context.fillText("r:" + this.r.toPrecision(2), this.x + 50, this.y - 10);
     context.fillStyle = "#000";
     context.fill();
 
+    context.fillText("vel:" + this.dx.toPrecision(2) + ", " + this.dy.toPrecision(2), this.x + 17, this.y);
+    context.fillStyle = "#000";
+    context.fill();
+
+    context.fillText(`acc x: ${this.ddx.toPrecision(2)}`, this.x + 17, this.y + 10);
+    context.fillStyle = "#000";
+    context.fill();
+
+    context.fillText(`acc y: ${this.ddy.toPrecision(2)}`, this.x + 17, this.y + 20);
+    context.fillStyle = "#000";
+    context.fill();
     context.beginPath();
     context.moveTo(this.x, this.y);
-    context.fillStyle = "#0F0";
-    context.lineTo(this.x + 100 * this.dx, this.y + 100 * this.dy);
+    context.strokeStyle = "black";
+    context.lineTo(this.x + this.r + 10 * this.dx, this.y + this.r + 10 * this.dy);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(this.x, this.y);
+    context.strokeStyle = "#F00";
+    context.lineTo(this.x + this.r + 10e2 * this.ddx, this.y + this.r + 10e2 * this.ddy);
     context.stroke();
   }
 
