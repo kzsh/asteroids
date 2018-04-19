@@ -41,7 +41,7 @@ export default class Ball extends Entity {
   }
 
   render(context) {
-    new Circle(context, {x: this.x, y: this.y}, this.r).render();
+    new Circle(context, {x: this.x, y: this.y}, this.r, this.color).render();
 
     context.beginPath();
     context.fillStyle = "#00F";
