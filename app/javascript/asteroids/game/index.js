@@ -5,7 +5,6 @@ export default class Game {
   constructor({engine}) {
     this.engine = engine;
 
-
     for(let x = 0; x < 10; x++) {
       this.engine.addEntity(
         new Ball(
