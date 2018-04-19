@@ -1,0 +1,3 @@
+- [ ] Extract physics into intermediate class between Entity and Ball
+- [ ] Extract telemetry into separate module
+- [ ] Reuse circle class in Ball, passing position at render
