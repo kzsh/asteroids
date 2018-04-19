@@ -43,36 +43,51 @@ export default class Ball extends Entity {
   render(context) {
     new Circle(context, {x: this.x, y: this.y}, this.r).render();
 
-    context.fillText("m:" + this.mass.toPrecision(2), this.x + 17, this.y - 10);
+    context.beginPath();
     context.fillStyle = "#00F";
+    context.fillText("m:" + this.mass.toPrecision(2), this.x + 17, this.y - 10);
     context.fill();
+    context.closePath();
 
+    context.beginPath();
+    context.fillStyle = "#000";
     context.fillText("r:" + this.r.toPrecision(2), this.x + 50, this.y - 10);
-    context.fillStyle = "#000";
     context.fill();
+    context.closePath();
 
+    context.beginPath();
+    context.fillStyle = "#000";
     context.fillText("vel:" + this.dx.toPrecision(2) + ", " + this.dy.toPrecision(2), this.x + 17, this.y);
-    context.fillStyle = "#000";
     context.fill();
+    context.closePath();
 
+    context.beginPath();
+    context.fillStyle = "#000";
     context.fillText(`acc x: ${this.ddx.toPrecision(2)}`, this.x + 17, this.y + 10);
-    context.fillStyle = "#000";
     context.fill();
+    context.closePath();
 
+    context.beginPath();
+    context.fillStyle = "#000";
     context.fillText(`acc y: ${this.ddy.toPrecision(2)}`, this.x + 17, this.y + 20);
-    context.fillStyle = "#000";
     context.fill();
-    context.beginPath();
-    context.moveTo(this.x, this.y);
-    context.strokeStyle = "black";
-    context.lineTo(this.x + this.r + 10 * this.dx, this.y + this.r + 10 * this.dy);
-    context.stroke();
+    context.closePath();
 
     context.beginPath();
     context.moveTo(this.x, this.y);
+    context.lineTo(this.x + this.ddx * 10e5, this.y + this.ddy * 10e5);
     context.strokeStyle = "#F00";
-    context.lineTo(this.x + this.r + 10e2 * this.ddx, this.y + this.r + 10e2 * this.ddy);
+    context.lineWidth = 3;
     context.stroke();
+    context.lineWidth = 1;
+    context.closePath();
+
+    context.beginPath();
+    context.moveTo(this.x, this.y);
+    context.lineTo(this.x + this.dx * 100, this.y + this.dy * 100);
+    context.strokeStyle = "black";
+    context.stroke();
+    context.closePath();
   }
 
 }
