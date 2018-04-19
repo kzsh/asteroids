@@ -6,15 +6,18 @@ export default class Game {
     this.engine = engine;
 
     for(let x = 0; x < 10; x++) {
+      let mass = Math.floor(Math.random() * 10) + 1;
+      let color = Math.floor(255 * mass / 11);
       this.engine.addEntity(
         new Ball(
           getRandomPosition().x,
           getRandomPosition().y,
           getRandomVelocity(0.1).dx,
           getRandomVelocity(0.1).dy,
-          Math.floor(Math.random() * 10),
           Math.floor(Math.random() * 10) + 1,
-          "#000")
+          Math.floor(Math.random() * 10) + 1,
+          `rgb(${color},${color},${color})`
+        )
       );
     }
     let started = true;
