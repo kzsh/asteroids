@@ -1,7 +1,7 @@
 import Entity from 'engine/entities/entity';
 import Circle from 'engine/system/shape/circle';
 
-const gravitationalFactor = 1;
+const gravitationalFactor = 5;
 export default class Ball extends Entity {
 
   constructor(x, y, dx, dy, r, mass, color) {
@@ -25,7 +25,7 @@ export default class Ball extends Entity {
 
     for(let e of entities) {
       let r = Math.sqrt(Math.pow(this.x - e.x, 2) + Math.pow(this.y - e.y, 2));
-      if (r > e.r && r > this.r) {
+      if (r > 5 * e.r && r > 5 * this.r) {
         ddx += ((e.x - this.x) * e.mass * this.mass * gravitationalFactor / Math.pow(r, 3)) || 0;
         ddy += ((e.y - this.y) * e.mass * this.mass * gravitationalFactor / Math.pow(r, 3)) || 0;
       }
@@ -75,7 +75,7 @@ export default class Ball extends Entity {
 
     context.beginPath();
     context.moveTo(this.x, this.y);
-    context.lineTo(this.x + this.ddx * 10e5, this.y + this.ddy * 10e5);
+    context.lineTo(this.x + this.ddx * 10e3, this.y + this.ddy * 10e3);
     context.strokeStyle = "#F00";
     context.lineWidth = 3;
     context.stroke();
