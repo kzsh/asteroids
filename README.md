@@ -1,9 +1,9 @@
 # Asteroids
+A small physics simulation
 
-# Getting started
+# Notes
+- React is unnecessary at the moment.
 
-`npm link` all directories under `app/javascript`
-
-`npm link [name]` for each directory name in `app/javascript`
-
-TODO: replace this with develop.sh
+# Setup
+`npm install`
+`npm start`
